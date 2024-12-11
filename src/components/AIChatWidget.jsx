@@ -160,7 +160,7 @@ export default function AIChatWidget() {
                      cursor-grab active:cursor-grabbing"
           >
             <img 
-              src="/public/voice.svg" 
+              src="/public/voice.png" 
               alt="Vocyth"
               className="relative w-8 h-8"
             />
@@ -211,7 +211,7 @@ export default function AIChatWidget() {
                     <div className="flex items-center gap-3">
                       <div className="w-8 h-8 rounded-full bg-black border border-white/10 
                                     flex items-center justify-center">
-                        <img src="/public/voice.svg" alt="Vocyth" className="w-6 h-6" />
+                        <img src="/public/voice.png" alt="Vocyth" className="w-6 h-6" />
                       </div>
                       <div>
                         <h3 className="text-white/90 font-medium">Vocyth Assistant</h3>
