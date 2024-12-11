@@ -1,0 +1,37 @@
+{
+  "name": "voice-forge",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@headlessui/react": "^1.7.17",
+    "@heroicons/react": "^2.0.18",
+    "@splinetool/react-spline": "^4.0.0",
+    "autoprefixer": "^10.4.16",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "framer-motion": "^10.16.4",
+    "fuse.js": "^7.0.0",
+    "nodemailer": "^6.9.16",
+    "postcss": "^8.4.31",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-draggable": "^4.4.6",
+    "react-player": "^2.13.0",
+    "react-resizable": "^3.0.5",
+    "react-router-dom": "^7.0.2",
+    "tailwindcss": "^3.3.3"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@vitejs/plugin-react": "^4.0.3",
+    "vite": "^4.4.5"
+  }
+}
