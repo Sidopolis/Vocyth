@@ -31,7 +31,7 @@ export default function Hero() {
             scene="https://prod.spline.design/cO3ogYNCMyoDjKDh/scene.splinecode"
             className="w-full h-full"
             style={{
-              transform: 'scale(1.15)',
+              transform: 'scale(0.90)',
               transformOrigin: 'center center',
             }}
           />
