@@ -1,8 +1,22 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ResizableBox } from 'react-resizable';
 import Draggable from 'react-draggable';
 import 'react-resizable/css/styles.css';
+
+const useDebounce = (callback, delay) => {
+  const timeoutRef = useRef(null);
+
+  return useCallback((...args) => {
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+
+    timeoutRef.current = setTimeout(() => {
+      callback(...args);
+    }, delay);
+  }, [callback, delay]);
+};
 
 export default function AIChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
@@ -128,13 +142,21 @@ export default function AIChatWidget() {
     setIsTyping(false); // Reset typing state
   };
 
-  const handleDragStart = () => {
-    setIsDragging(true);
-  };
+  // Optimize click handler
+  const handleClick = useDebounce(() => {
+    if (!isDragging) {
+      setIsOpen(!isOpen);
+    }
+  }, 100);
 
-  const handleDragStop = () => {
+  // Optimize drag handlers
+  const handleDragStart = useCallback(() => {
+    setIsDragging(true);
+  }, []);
+
+  const handleDragStop = useCallback(() => {
     setIsDragging(false);
-  };
+  }, []);
 
   return (
     <div className="fixed inset-0 pointer-events-none z-50">
@@ -153,16 +175,19 @@ export default function AIChatWidget() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => !isDragging && setIsOpen(!isOpen)}
+            onClick={handleClick}
             className="drag-handle relative w-14 h-14 rounded-full bg-black/95 
                      border border-white/20 flex items-center justify-center 
                      shadow-lg hover:shadow-xl transition-all duration-300
                      cursor-grab active:cursor-grabbing"
           >
             <img 
-              src="/public/voice.png" 
+              src="/voice.png" 
               alt="Vocyth"
               className="relative w-8 h-8"
+              loading="lazy"
+              width="32"
+              height="32"
             />
           </motion.button>
 
@@ -211,7 +236,7 @@ export default function AIChatWidget() {
                     <div className="flex items-center gap-3">
                       <div className="w-8 h-8 rounded-full bg-black border border-white/10 
                                     flex items-center justify-center">
-                        <img src="/public/voice.png" alt="Vocyth" className="w-6 h-6" />
+                        <img src="/voice.png" alt="Vocyth" className="w-6 h-6" />
                       </div>
                       <div>
                         <h3 className="text-white/90 font-medium">Vocyth Assistant</h3>
