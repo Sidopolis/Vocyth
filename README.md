@@ -32,17 +32,3 @@ A modern full-stack voice synthesis platform that enables real-time voice proces
 
 ### Deployment
 - Vercel
-
-## 📸 Screenshots
-
-<details>
-<summary>View Screenshots</summary>
-
-![Feature 1](feature1.png)
-![Feature 2](feature2.png)
-
-</details>
-
-## 📄 License
-
-This project is MIT licensed.
