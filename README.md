@@ -4,7 +4,8 @@ A modern full-stack voice synthesis platform that enables real-time voice proces
 
 [Live Demo](https://vocyth.vercel.app)
 
-![Vocyth Preview](screenshot.png)
+![Vocyth Preview](![Uploading Screenshot 2024-12-12 005742.png…]()
+)
 
 ## ⚡ Core Features
 
